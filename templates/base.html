@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="jquery/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/weather.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Soul-Weather</title>
+    <!-- Google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <style></style>
+
+    {% block head%} {%endblock%}
+  </head>
+  <body class="body">
+    <!-- Navbar start -->
+    <nav class="navbar navbar-expand-lg bg-light">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#"
+          ><span><img src="/static/weathericon.png" alt="" /></span>
+          Soul-Weather</a
+        >
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('home') }}"
+              ><i class="fa fa-home" aria-hidden="true"></i> Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <div class="nav-link dropdown">
+              <a
+                class="dropbtn fa fa-map-marker"
+                style="color: #007bff; font-weight: bold;"
+              >
+                Maps
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <div class="dropdown-content">
+                <a
+                  href="{{ url_for('view_map',map_type='clouds_new') }}"
+                  type="button"
+                  >Clouds View</a
+                >
+                <a
+                  href="{{ url_for('view_map',map_type='precipitation_new') }}"
+                  type="button"
+                  >Precipitation View</a
+                >
+                <a
+                  href="{{ url_for('view_map',map_type='pressure_new') }}"
+                  type="button"
+                  >Pressure View</a
+                >
+                <a
+                  href="{{ url_for('view_map',map_type='wind_new') }}"
+                  type="button"
+                  >Wind View</a
+                >
+                <a
+                  href="{{ url_for('view_map',map_type='temp_new') }}"
+                  type="button"
+                  >Temperature View</a
+                >
+                <a
+                  href="{{ url_for('view_map',map_type='Vane') }}"
+                  type="button"
+                  >Vane View</a
+                >
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1"
+              ><i class="fa fa-info-circle" aria-hidden="true"></i> About us</a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method="POST">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search by city"
+            name="city"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
+    <div class="col-md-4" style="margin-left: 30%;">
+      {% with messages=get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category,message in messages%}
+      <div class="alert alert-{{ category }} text-center">
+        {{ message}}
+      </div>
+      {% endfor %} {% endif%} {% endwith %}
+    </div>
+
+    {%block content%} {%endblock%}
+  </body>
+</html>

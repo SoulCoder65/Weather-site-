@@ -1,0 +1,105 @@
+{% extends 'base.html'%} {% block head %}
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link rel="stylesheet" href="/static/weather.css" />
+<style>
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  .background {
+    background-image: url("/static/weatherback.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    opacity: 1;
+  }
+</style>
+
+{%endblock%} {% block content %}
+<div>
+  <div class="background"></div>
+  <div class="content">
+    <div class="container-fluid weather-chart">
+      <div id="openweathermap-widget-1" style="margin-left: 30%;"></div>
+      <script src="//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js"></script>
+      <script>
+        window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 1,cityid: {{cityid}},appid: '3d446dd2eafa5e31768573394249249e',units: 'metric',containerid: 'openweathermap-widget-1',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();
+      </script>
+    </div>
+    <div class="container details details-div">
+      <h3 class="ml-2 mb-4">
+        <img src="/static/info.png" class="png-logo-info" alt="" />
+        <b> Others Informations</b>
+      </h3>
+      <!-- Pressure -->
+      <div class="row">
+        <div class="icon col-md-4">
+          <img src="/static/pressure.png" alt="" />
+          <span class="ml-2"> Pressure</span>
+        </div>
+        <div class="details col-md-6">
+          <p>{{extra_details.pressure}} Millibar(Mb)</p>
+        </div>
+      </div>
+      <!-- Min-Max -->
+      <div class="row">
+        <div class="icon col-md-4">
+          <img src="/static/mintemp.png" class="png-logo" alt="" />
+          <span class="ml-2"> Min-Temp</span>
+        </div>
+        <div class="details col-md-2">
+          <p>{{extra_details.min_temp}} &#8490;</p>
+        </div>
+        <div class="details col-md-2">
+          <p>{{extra_details.min_temp_celsius}} &#8451;</p>
+        </div>
+      </div>
+      <!-- Max-Temp -->
+      <div class="row">
+        <div class="icon col-md-4">
+          <img src="/static/maxtemp.png" class="png-logo" alt="" /><span
+            class="ml-2"
+            >Max-Temp</span
+          >
+        </div>
+        <div class="details col-md-2">
+          <p>{{extra_details.max_temp}} &#8490;</p>
+        </div>
+        <div class="details col-md-2">
+          <p>{{extra_details.max_temp_celsius}} &#8451;</p>
+        </div>
+      </div>
+      <!-- Wind -->
+      <div class="row">
+        <div class="icon col-md-4">
+          <img src="/static/wind.png" alt="" />
+          <span class="ml-2">Wind-Speed</span>
+        </div>
+        <div class="details col-md-2">
+          <p>{{extra_details.wind_speed}} m/sec</p>
+        </div>
+      </div>
+      <!-- Country -->
+      <div class="row">
+        <div class="icon col-md-4">
+          <img src="/static/globe.png" alt="" />
+          <span class="ml-2"> Country</span>
+        </div>
+        <div class="details col-md-2">
+          <p>{{extra_details.country}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}

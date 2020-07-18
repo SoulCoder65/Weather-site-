@@ -1,0 +1,141 @@
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropbtn {
+  color: blue;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 80%;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav-link {
+  font-size: 130%;
+  font-family: "Roboto", sans-serif;
+}
+.navbar-brand {
+  font-size: 180%;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+}
+/* cards */
+.blog-css-align {
+  display: inline-block;
+  margin-left: 30%;
+  margin-top: 4%;
+  width: 40%;
+}
+.card-body {
+  color: #e84a5f;
+  font-weight: bold;
+  font-size: 150%;
+  background-color: rgba(229, 255, 204, 1);
+}
+.card-css-align {
+  margin-bottom: 5%;
+  border: 0px;
+}
+.blog-css {
+  background-image: linear-gradient(#14b1ab, #383e56);
+}
+.blog-css h5 {
+  display: inline-block;
+}
+
+.blog-css input {
+  display: inline-block;
+  margin-left: 75%;
+}
+
+input.delete-city {
+  display: inline-block;
+  width: 10%;
+}
+form h5 {
+  font-size: 170%;
+  font-family: "Nanum Gothic", sans-serif;
+  color: #092532;
+}
+
+/* city_weather */
+.content {
+  width: 100%;
+  top: 10%;
+  position: absolute;
+  z-index: 2;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+.dropbtn {
+  color: blue;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 80%;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.weather-chart {
+  margin-left: -2%;
+  margin-top: 4%;
+  opacity: 1;
+}
+
+.details-div {
+  background-color: rgba(234, 234, 234, 0.4);
+
+  margin-left: 25%;
+  margin-top: 5%;
+
+  width: 50%;
+}
+.png-logo {
+  width: 17%;
+}
+.png-logo-info {
+  width: 11%;
+}
+.row {
+  margin-top: 2%;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 130%;
+}
